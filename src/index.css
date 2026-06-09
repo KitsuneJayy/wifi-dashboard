@@ -1,0 +1,73 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-deep: #070D1A;
+  --bg-card: #0D1628;
+  --bg-card2: #111E35;
+  --border: #1E3050;
+  --border-glow: #00FF8840;
+  --green: #00FF88;
+  --green-dim: #00FF8840;
+  --blue: #38BFFF;
+  --blue-dim: #38BFFF30;
+  --orange: #FF7A35;
+  --orange-dim: #FF7A3530;
+  --purple: #A78BFA;
+  --purple-dim: #A78BFA30;
+  --text-primary: #E8F4FF;
+  --text-secondary: #6B8BAE;
+  --text-mono: #00FF88;
+  --font-mono: 'IBM Plex Mono', monospace;
+  --font-body: 'Inter', sans-serif;
+}
+
+html, body, #root {
+  height: 100%;
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  background: var(--bg-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+@keyframes scanLine {
+  0% { transform: translateY(-100%); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 8px var(--green-dim), 0 0 20px transparent; }
+  50% { box-shadow: 0 0 16px var(--green-dim), 0 0 40px #00FF8810; }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
